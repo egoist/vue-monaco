@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <% if (htmlWebpackPlugin.options.description) { %>
+    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>"/>
+    <% } %>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/requirejs/2.1.22/require.min.js"></script>
+  </body>
+</html>

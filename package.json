@@ -1,0 +1,62 @@
+{
+  "name": "vue-monaco",
+  "version": "0.0.0",
+  "description": "MonacoEditor component for Vue.js",
+  "repository": {
+    "url": "egoist/vue-monaco",
+    "type": "git"
+  },
+  "main": "dist/vue-monaco.common.js",
+  "unpkg": "dist/vue-monaco.js",
+  "cdn": "dist/vue-monaco.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "npm run lint && echo 'no tests!'",
+    "lint": "xo",
+    "prepublish": "npm run build",
+    "build": "bili --buble.objectAssign assign --format umd,cjs --module-name VueMonaco",
+    "example": "poi",
+    "build:example": "poi build"
+  },
+  "author": "egoist <0x142857@gmail.com>",
+  "license": "MIT",
+  "poi": {
+    "entry": "example/index.js",
+    "dist": "example/dist",
+    "homepage": "/",
+    "html": {
+      "title": "vue-monaco",
+      "template": "example/template.ejs"
+    },
+    "copy": [
+      {
+        "from": "node_modules/monaco-editor/min/vs",
+        "to": "vs"
+      }
+    ]
+  },
+  "dependencies": {
+    "nano-assign": "^1.0.0"
+  },
+  "devDependencies": {
+    "bili": "^0.17.0",
+    "eslint-config-rem": "^3.0.0",
+    "monaco-editor": "^0.9.0",
+    "poi": "^9.1.4",
+    "xo": "^0.18.0"
+  },
+  "xo": {
+    "extends": "rem/prettier",
+    "ignores": [
+      "example/**"
+    ],
+    "envs": [
+      "browser"
+    ],
+    "rules": {
+      "unicorn/filename-case": 0
+    }
+  }
+}

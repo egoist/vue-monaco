@@ -1,0 +1,11 @@
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.editor {
+  height: 80%;
+}
