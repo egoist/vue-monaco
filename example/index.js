@@ -9,11 +9,19 @@ function foo() {
 `.trim()
 
 const markdownCode = `
-## hello
+<template>
+  <div id="app">hello</div>
+</template>
 
-\`\`\`js
-${code}
-\`\`\`
+<script>
+export default {
+  data() {
+    return {
+      foo: 'foo'
+    }
+  }
+}
+</script>
 `
 
 new Vue({
@@ -30,7 +38,7 @@ new Vue({
 
   methods: {
     updateCode() {
-      this.language = 'markdown'
+      this.language = 'html'
       this.code = markdownCode
       this.options.tabSize = 8
       this.options.lineNumbers = false
@@ -44,6 +52,7 @@ new Vue({
         <button onClick={this.updateCode}>update</button>
         <MonacoEditor
           class="editor"
+          style="height: 100%;"
           value={this.code}
           language={this.language}
           theme={this.theme}

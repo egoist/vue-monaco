@@ -32,6 +32,7 @@ Then use the component:
 ```vue
 <template>
   <monaco-editor
+    class="editor"
     v-model="code"
     language="javascript">
   </monaco-editor>
@@ -52,6 +53,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.editor {
+  width: 600px;
+  height: 800px;
+}
+</style>
 ```
 
 ### Props
