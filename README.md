@@ -14,8 +14,6 @@ yarn add vue-monaco
 
 <details><summary>You need to include monaco-editor first.</summary>
 
-Then use the component:
-
 ```html
 <script src="/path/to/monaco-editor/min/vs/loader.js"></script>
 <script>
@@ -26,7 +24,10 @@ Then use the component:
   })
 </script>
 ```
-</details>
+</details><br>
+
+Then use the component:
+
 
 ```vue
 <template>
