@@ -14,6 +14,10 @@ export default {
     options: Object
   },
 
+  model: {
+    event: 'change'
+  },
+
   watch: {
     options: {
       deep: true,
