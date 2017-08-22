@@ -1,6 +1,6 @@
 {
   "name": "vue-monaco",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MonacoEditor component for Vue.js",
   "repository": {
     "url": "egoist/vue-monaco",
