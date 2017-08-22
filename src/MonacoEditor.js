@@ -60,7 +60,10 @@ export default {
     window.require(['vs/editor/editor.main'], () => {
       this.editor = window.monaco.editor.create(this.$el, options)
       this.editor.onDidChangeModelContent(event => {
-        this.$emit('change', this.editor.getValue(), event)
+        const value = this.editor.getValue()
+        if (this.value !== value) {
+          this.$emit('change', value, event)
+        }
       })
       this.editor.onDidFocusEditor(() => {
         this.$emit('focus')
