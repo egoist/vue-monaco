@@ -71,6 +71,21 @@ export default {
       this.editor.onDidBlurEditor(() => {
         this.$emit('blur')
       })
+      this.editor.onDidChangeCursorPosition((event) => {
+        this.$emit('cursorPosition', event)
+      })
+      this.editor.onDidChangeCursorSelection((event) => {
+        this.$emit('cursorSelection', event)
+      })
+      this.editor.onDidScrollChange((event) => {
+        this.$emit('scroll', event)
+      })
+      this.editor.onKeyDown((event) => {
+        this.$emit('keydown', event)
+      })
+      this.editor.onKeyUp((event) => {
+        this.$emit('keyup', event)
+      })
     })
   },
 
