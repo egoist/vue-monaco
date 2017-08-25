@@ -63,9 +63,15 @@ export default {
       this.editor.onContextMenu(event => this.$emit('contextMenu', event))
       this.editor.onDidBlurEditor(() => this.$emit('blur'))
       this.editor.onDidBlurEditorText(() => this.$emit('blurText'))
-      this.editor.onDidChangeConfiguration(event => this.$emit('configuration', event))
-      this.editor.onDidChangeCursorPosition(event => this.$emit('position', event))
-      this.editor.onDidChangeCursorSelection(event => this.$emit('selection', event))
+      this.editor.onDidChangeConfiguration(event =>
+        this.$emit('configuration', event)
+      )
+      this.editor.onDidChangeCursorPosition(event =>
+        this.$emit('position', event)
+      )
+      this.editor.onDidChangeCursorSelection(event =>
+        this.$emit('selection', event)
+      )
       this.editor.onDidChangeModel(event => this.$emit('model', event))
       this.editor.onDidChangeModelContent(event => {
         const value = this.editor.getValue()
@@ -73,9 +79,15 @@ export default {
           this.$emit('change', value, event)
         }
       })
-      this.editor.onDidChangeModelDecorations(event => this.$emit('modelDecorations', event))
-      this.editor.onDidChangeModelLanguage(event => this.$emit('modelLanguage', event))
-      this.editor.onDidChangeModelOptions(event => this.$emit('modelOptions', event))
+      this.editor.onDidChangeModelDecorations(event =>
+        this.$emit('modelDecorations', event)
+      )
+      this.editor.onDidChangeModelLanguage(event =>
+        this.$emit('modelLanguage', event)
+      )
+      this.editor.onDidChangeModelOptions(event =>
+        this.$emit('modelOptions', event)
+      )
       this.editor.onDidDispose(event => this.$emit('afterDispose', event))
       this.editor.onDidFocusEditor(() => this.$emit('focus'))
       this.editor.onDidFocusEditorText(() => this.$emit('focusText'))
