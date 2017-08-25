@@ -71,10 +71,32 @@ export default {
 
 ### Events
 
-- `change`: Emitted when the value is changed, args:
-  - `newValue`
-- `focus`: Emitted when the editor is focused.
-- `blur`: Emitted when the editor loses focus.
+| Event              | IStandaloneCodeEditor Event | Parameters                                  |
+|--------------------|-----------------------------|---------------------------------------------|
+| `editorMount`      |                             | IStandaloneCodeEditor                       |
+| `contextMenu`      | onContextMenu               | IEditorMouseEvent                           |
+| `blur`             | onDidBlurEditor             |                                             |
+| `blurText`         | onDidBlurEditorText         |                                             |
+| `configuration`    | onDidBlurEditorText         | IConfigurationChangedEvent                  |
+| `position`         | onDidChangeCursorPosition   | ICursorPositionChangedEvent                 |
+| `selection`        | onDidChangeCursorSelection  | ICursorSelectionChangedEvent                |
+| `model`            | onDidChangeModel            | IModelChangedEvent                          |
+| `change`           | onDidChangeModelContent     | value: string, e: IModelContentChangedEvent |
+| `modelDecorations` | onDidChangeModelDecorations | IModelDecorationsChangedEvent               |
+| `modelLanguage`    | onDidChangeModelLanguage    | IModelLanguageChangedEvent                  |
+| `modelOptions`     | onDidChangeModelOptions     | IModelOptionsChangedEvent                   |
+| `afterDispose`     | onDidDispose                |                                             |
+| `focus`            | onDidFocusEditor            |                                             |
+| `focusText`        | onDidFocusEditorText        |                                             |
+| `layout`           | onDidLayoutChange           | EditorLayoutInfo                            |
+| `scroll`           | onDidScrollChange           | IScrollEvent                                |
+| `keydown`          | onKeyDown                   | IKeyboardEvent                              |
+| `keyup`            | onKeyUp                     | IKeyboardEvent                              |
+| `mouseDown`        | onMouseDown                 | IEditorMouseEvent                           |
+| `mouseLeave`       | onMouseLeave                | IEditorMouseEvent                           |
+| `mouseMove`        | onMouseMove                 | IEditorMouseEvent                           |
+| `mouseUp`          | onMouseUp                   | IEditorMouseEvent                           |
+
 
 ### Methods
 
