@@ -11,11 +11,18 @@ export default {
       default: 'vs'
     },
     language: String,
-    options: Object
+    options: Object,
+    placeholder: null
   },
 
   model: {
     event: 'change'
+  },
+
+  data() {
+    return {
+      editorLoaded: false
+    }
   },
 
   watch: {
@@ -58,6 +65,7 @@ export default {
     }
 
     window.require(['vs/editor/editor.main'], () => {
+      this.editorLoaded = true
       this.editor = window.monaco.editor.create(this.$el, options)
       this.$emit('editorMount', this.editor)
       this.editor.onContextMenu(event => this.$emit('contextMenu', event))
@@ -117,6 +125,6 @@ export default {
   },
 
   render(h) {
-    return h('div')
+    return h('div', null, this.editorLoaded ? null : this.placeholder)
   }
 }

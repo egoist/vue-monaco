@@ -68,6 +68,7 @@ export default {
 - `language`
 - `theme`
 - `options`
+- `placeholder`: Display a placeholder until the monaco editor is loaded. Could a string or vNode.
 
 ### Events
 
