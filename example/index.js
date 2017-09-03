@@ -58,7 +58,7 @@ new Vue({
           theme={this.theme}
           options={this.options}
           onChange={newValue => this.code = newValue}
-          placeholder="hi!!!"
+          placeholder={<div>hello</div>}
         />
       </div>
     )

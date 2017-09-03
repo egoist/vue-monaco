@@ -125,6 +125,6 @@ export default {
   },
 
   render(h) {
-    return h('div', null, this.editorLoaded ? null : this.placeholder)
+    return h('div', null, [this.editorLoaded ? null : this.placeholder])
   }
 }
