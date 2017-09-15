@@ -12,7 +12,11 @@ export default {
     },
     language: String,
     options: Object,
-    placeholder: null
+    placeholder: null,
+    require: {
+      type: Function,
+      default: window.require
+    }
   },
 
   model: {
@@ -64,7 +68,7 @@ export default {
       ...this.options
     }
 
-    window.require(['vs/editor/editor.main'], () => {
+    this.require(['vs/editor/editor.main'], () => {
       this.editorLoaded = true
       this.editor = window.monaco.editor.create(this.$el, options)
       this.$emit('editorMount', this.editor)
