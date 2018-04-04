@@ -69,7 +69,7 @@ export default {
 - `theme`
 - `options`
 - `placeholder`: Display a placeholder until the monaco editor is loaded. Could a string or vNode.
-- `require`: Cutomize `require`. Sometimes, `window.require` is not the one wanted (eg. Electron). Check here https://github.com/Microsoft/monaco-editor-samples/tree/master/sample-electron
+- `require`: Cutomize `require`. Sometimes, `window.require` is not the one wanted (eg. Electron). Check here https://github.com/Microsoft/monaco-editor-samples/tree/master/electron-amd
 
 ### Events
 
