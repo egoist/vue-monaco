@@ -6,7 +6,7 @@
     "url": "egoist/vue-monaco",
     "type": "git"
   },
-  "main": "dist/vue-monaco.common.js",
+  "main": "dist/vue-monaco.es.js",
   "unpkg": "dist/vue-monaco.js",
   "cdn": "dist/vue-monaco.js",
   "files": [
@@ -16,35 +16,21 @@
     "test": "npm run lint && echo 'no tests!'",
     "lint": "xo",
     "prepublish": "npm run build",
-    "build": "bili --buble.objectAssign assign --format umd,cjs --module-name VueMonaco",
+    "build": "bili --js buble --format umd,es --module-name VueMonaco --globals.monaco-editor monaco",
     "example": "poi",
     "build:example": "poi build"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
-  "poi": {
-    "entry": "example/index.js",
-    "dist": "example/dist",
-    "homepage": "/",
-    "html": {
-      "title": "vue-monaco",
-      "template": "example/template.ejs"
-    },
-    "copy": [
-      {
-        "from": "node_modules/monaco-editor/min/vs",
-        "to": "vs"
-      }
-    ]
-  },
   "dependencies": {
+    "monaco-editor": "^0.13.1",
     "nano-assign": "^1.0.0"
   },
   "devDependencies": {
-    "bili": "^0.17.0",
+    "bili": "^3.1.2",
     "eslint-config-rem": "^3.0.0",
-    "monaco-editor": "^0.9.0",
-    "poi": "^9.1.4",
+    "monaco-editor-webpack-plugin": "^1.4.0",
+    "poi": "^10.2.9",
     "xo": "^0.18.0"
   },
   "xo": {

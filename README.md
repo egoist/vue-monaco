@@ -12,22 +12,20 @@ yarn add vue-monaco
 
 ## Usage
 
-<details><summary>You need to include monaco-editor first.</summary>
+To use with webpack:
 
-```html
-<script src="/path/to/monaco-editor/min/vs/loader.js"></script>
-<script>
-  require.config({ 
-    paths: { 
-      vs: '/path/to/monaco-editor/min/vs'
-    }
-  })
-</script>
+```js
+// webpack.config.js
+const MonocoEditorPlugin = require('monaco-editor-webpack-plugin')
+
+module.exports = {
+  plugins: [
+    new MonocoEditorPlugin()
+  ]
+}
 ```
-</details><br>
 
 Then use the component:
-
 
 ```vue
 <template>
@@ -68,8 +66,6 @@ export default {
 - `language`
 - `theme`
 - `options`
-- `placeholder`: Display a placeholder until the monaco editor is loaded. Could a string or vNode.
-- `require`: Cutomize `require`. Sometimes, `window.require` is not the one wanted (eg. Electron). Check here https://github.com/Microsoft/monaco-editor-samples/tree/master/electron-amd
 
 ### Events
 

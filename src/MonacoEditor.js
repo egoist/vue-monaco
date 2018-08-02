@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import assign from 'nano-assign'
+import * as monaco from 'monaco-editor'
 
 export default {
   name: 'MonacoEditor',
@@ -12,7 +13,10 @@ export default {
     },
     language: String,
     options: Object,
-    placeholder: null,
+    amd: {
+      type: Boolean,
+      default: false
+    },
     require: {
       type: Function,
       default: window.require
@@ -21,12 +25,6 @@ export default {
 
   model: {
     event: 'change'
-  },
-
-  data() {
-    return {
-      editorLoaded: false
-    }
   },
 
   watch: {
@@ -61,17 +59,29 @@ export default {
   },
 
   mounted() {
-    const options = {
-      value: this.value,
-      theme: this.theme,
-      language: this.language,
-      ...this.options
+    if (this.amd) {
+      this.require(['vs/editor/editor.main'], () => {
+        this.initMonaco(window.monaco)
+      })
+    } else {
+      this.initMonaco(monaco)
     }
+  },
 
-    this.require(['vs/editor/editor.main'], () => {
-      this.editorLoaded = true
-      this.editor = window.monaco.editor.create(this.$el, options)
-      this.$emit('editorMount', this.editor)
+  beforeDestroy() {
+    this.editor && this.editor.dispose()
+  },
+
+  methods: {
+    initMonaco(monaco) {
+      const options = assign({
+        value: this.value,
+        theme: this.theme,
+        language: this.language
+      }, this.options)
+
+      this.editor = monaco.editor.create(this.$el, options)
+      this.$emit('editorDidMount', this.editor)
       this.editor.onContextMenu(event => this.$emit('contextMenu', event))
       this.editor.onDidBlurEditor(() => this.$emit('blur'))
       this.editor.onDidBlurEditorText(() => this.$emit('blurText'))
@@ -111,14 +121,8 @@ export default {
       this.editor.onMouseLeave(event => this.$emit('mouseLeave', event))
       this.editor.onMouseMove(event => this.$emit('mouseMove', event))
       this.editor.onMouseUp(event => this.$emit('mouseUp', event))
-    })
-  },
+    },
 
-  beforeDestroy() {
-    this.editor && this.editor.dispose()
-  },
-
-  methods: {
     getMonaco() {
       return this.editor
     },
@@ -129,6 +133,6 @@ export default {
   },
 
   render(h) {
-    return h('div', null, [this.editorLoaded ? null : this.placeholder])
+    return h('div')
   }
 }
