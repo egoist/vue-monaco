@@ -1,5 +1,6 @@
-// eslint-disable-next-line no-unused-vars
 import assign from 'nano-assign'
+// monaco-editor is in esm format, so cannot be resolved
+// eslint-disable-next-line import/no-unresolved
 import * as monaco from 'monaco-editor'
 
 export default {
@@ -74,11 +75,14 @@ export default {
 
   methods: {
     initMonaco(monaco) {
-      const options = assign({
-        value: this.value,
-        theme: this.theme,
-        language: this.language
-      }, this.options)
+      const options = assign(
+        {
+          value: this.value,
+          theme: this.theme,
+          language: this.language
+        },
+        this.options
+      )
 
       this.editor = monaco.editor.create(this.$el, options)
       this.$emit('editorDidMount', this.editor)
