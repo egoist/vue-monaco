@@ -71,7 +71,7 @@ export default {
 
 | Event              | IStandaloneCodeEditor Event | Parameters                                  |
 |--------------------|-----------------------------|---------------------------------------------|
-| `editorMount`      |                             | IStandaloneCodeEditor                       |
+| `editorDidMount`      |                             | IStandaloneCodeEditor                       |
 | `contextMenu`      | onContextMenu               | IEditorMouseEvent                           |
 | `blur`             | onDidBlurEditor             |                                             |
 | `blurText`         | onDidBlurEditorText         |                                             |
