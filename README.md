@@ -135,7 +135,7 @@ window.MonacoEnvironment = {
 | ------------------ | --------------------------- | ------------------------------------------- |
 | `editorDidMount`   |                             | IStandaloneCodeEditor                       |
 | `contextMenu`      | onContextMenu               | IEditorMouseEvent                           |
-| `blur`             | onDidBlurEditor             |                                             |
+| `blur`             | onDidBlurEditorWidget       |                                             |
 | `blurText`         | onDidBlurEditorText         |                                             |
 | `configuration`    | onDidBlurEditorText         | IConfigurationChangedEvent                  |
 | `position`         | onDidChangeCursorPosition   | ICursorPositionChangedEvent                 |
@@ -146,7 +146,7 @@ window.MonacoEnvironment = {
 | `modelLanguage`    | onDidChangeModelLanguage    | IModelLanguageChangedEvent                  |
 | `modelOptions`     | onDidChangeModelOptions     | IModelOptionsChangedEvent                   |
 | `afterDispose`     | onDidDispose                |                                             |
-| `focus`            | onDidFocusEditor            |                                             |
+| `focus`            | onDidFocusEditorWidget      |                                             |
 | `focusText`        | onDidFocusEditorText        |                                             |
 | `layout`           | onDidLayoutChange           | EditorLayoutInfo                            |
 | `scroll`           | onDidScrollChange           | IScrollEvent                                |
