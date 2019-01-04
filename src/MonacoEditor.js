@@ -1,7 +1,4 @@
 import assign from 'nano-assign'
-// monaco-editor is in esm format, so cannot be resolved
-// eslint-disable-next-line import/no-unresolved
-import * as monaco from 'monaco-editor'
 
 export default {
   name: 'MonacoEditor',
@@ -14,13 +11,8 @@ export default {
     },
     language: String,
     options: Object,
-    amd: {
-      type: Boolean,
-      default: false
-    },
-    require: {
-      type: Function,
-      default: window.require
+    amdRequire: {
+      type: Function
     }
   },
 
@@ -60,11 +52,12 @@ export default {
   },
 
   mounted() {
-    if (this.amd) {
-      this.require(['vs/editor/editor.main'], () => {
+    if (this.amdRequire) {
+      this.amdRequire(['vs/editor/editor.main'], () => {
         this.initMonaco(window.monaco)
       })
     } else {
+      const monaco = require('monaco-editor')
       this.initMonaco(monaco)
     }
   },

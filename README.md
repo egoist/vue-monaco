@@ -1,8 +1,8 @@
 # vue-monaco
 
-[![NPM version](https://img.shields.io/npm/v/vue-monaco.svg?style=flat)](https://npmjs.com/package/vue-monaco) [![NPM downloads](https://img.shields.io/npm/dm/vue-monaco.svg?style=flat)](https://npmjs.com/package/vue-monaco) [![CircleCI](https://circleci.com/gh/egoist/vue-monaco/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-monaco/tree/master)  [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate)
+[![NPM version](https://img.shields.io/npm/v/vue-monaco.svg?style=flat)](https://npmjs.com/package/vue-monaco) [![NPM downloads](https://img.shields.io/npm/dm/vue-monaco.svg?style=flat)](https://npmjs.com/package/vue-monaco) [![CircleCI](https://circleci.com/gh/egoist/vue-monaco/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-monaco/tree/master) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate)
 
-*[Monaco Editor](https://github.com/Microsoft/monaco-editor) is the code editor that powers VS Code.*
+_[Monaco Editor](https://github.com/Microsoft/monaco-editor) is the code editor that powers VS Code._
 
 ## Install
 
@@ -12,16 +12,16 @@ yarn add vue-monaco
 
 ## Usage
 
-To use with webpack:
+### Use ESM version with webpack
+
+Use [monaco-editor-webpack-plugin](https://github.com/Microsoft/monaco-editor-webpack-plugin):
 
 ```js
 // webpack.config.js
 const MonocoEditorPlugin = require('monaco-editor-webpack-plugin')
 
 module.exports = {
-  plugins: [
-    new MonocoEditorPlugin()
-  ]
+  plugins: [new MonocoEditorPlugin()]
 }
 ```
 
@@ -29,10 +29,7 @@ Then use the component:
 
 ```vue
 <template>
-  <monaco-editor
-    class="editor"
-    v-model="code"
-    language="javascript">
+  <monaco-editor class="editor" v-model="code" language="javascript">
   </monaco-editor>
 </template>
 
@@ -60,18 +57,72 @@ export default {
 </style>
 ```
 
+### Use AMD version
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <div
+      id="container"
+      style="width:800px;height:600px;border:1px solid grey"
+    ></div>
+
+    <script src="monaco-editor/min/vs/loader.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-monaco"></script>
+    <script>
+      require.config({ paths: { vs: 'monaco-editor/min/vs' } })
+
+      new Vue({
+        template: `<monaco-editor v-model="code" language="javascript" :amdRequire="amdRequire" />`,
+        data: {
+          code: 'const noop = () => {}',
+          amdRequire: require
+        }
+      })
+    </script>
+  </body>
+</html>
+```
+
+When loading monaco-editor from a CDN, you need to change `require.config` to look like this:
+
+```js
+require.config({ paths: { vs: 'http://www.mycdn.com/monaco-editor/min/vs' } })
+
+// Before loading vs/editor/editor.main, define a global MonacoEnvironment that overwrites
+// the default worker url location (used when creating WebWorkers). The problem here is that
+// HTML5 does not allow cross-domain web workers, so we need to proxy the instantiation of
+// a web worker through a same-domain script
+window.MonacoEnvironment = {
+  getWorkerUrl: function(workerId, label) {
+    return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+        self.MonacoEnvironment = {
+          baseUrl: 'http://www.mycdn.com/monaco-editor/min/'
+        };
+        importScripts('http://www.mycdn.com/monaco-editor/min/vs/base/worker/workerMain.js');`)}`
+  }
+}
+```
+
 ### Props
 
-- `code`
-- `language`
-- `theme`
-- `options`
+- `options`: The [second argument](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) of [`monaco.editor.create`](https://microsoft.github.io/monaco-editor/api/modules/monaco.editor.html#create).
+- `code`: A shortcut to set `options.value`.
+- `theme`: A shortcut to set `options.theme`.
+- `language`: A shortcut to set `options.language`.
+- `amdRequire`: Load monaco-editor using given amd-style require function.
 
 ### Events
 
 | Event              | IStandaloneCodeEditor Event | Parameters                                  |
-|--------------------|-----------------------------|---------------------------------------------|
-| `editorDidMount`      |                             | IStandaloneCodeEditor                       |
+| ------------------ | --------------------------- | ------------------------------------------- |
+| `editorDidMount`   |                             | IStandaloneCodeEditor                       |
 | `contextMenu`      | onContextMenu               | IEditorMouseEvent                           |
 | `blur`             | onDidBlurEditor             |                                             |
 | `blurText`         | onDidBlurEditorText         |                                             |
@@ -95,7 +146,6 @@ export default {
 | `mouseMove`        | onMouseMove                 | IEditorMouseEvent                           |
 | `mouseUp`          | onMouseUp                   | IEditorMouseEvent                           |
 
-
 ### Methods
 
 - `getMonaco(): IStandaloneCodeEditor`: Return the [editor instance](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html).
@@ -110,10 +160,9 @@ Use `ref` to interact with the `MonacoEditor` component in order to access metho
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-
 ## Author
 
 **vue-monaco** © [egoist](https://github.com/egoist), Released under the [MIT](./LICENSE) License.<br>
 Authored and maintained by egoist with help from contributors ([list](https://github.com/egoist/vue-monaco/contributors)).
 
-> [egoist.moe](https://egoist.moe) · GitHub [@egoist](https://github.com/egoist) · Twitter [@_egoistlily](https://twitter.com/_egoistlily)
+> [Website](https://egoist.sh) · GitHub [@egoist](https://github.com/egoist) · Twitter [@\_egoistlily](https://twitter.com/_egoistlily)
