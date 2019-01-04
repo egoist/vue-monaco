@@ -90,7 +90,9 @@ export default {
       new Vue({
         template: `<monaco-editor v-model="code" language="javascript" :amdRequire="amdRequire" />`,
         data: {
-          code: 'const noop = () => {}',
+          code: 'const noop = () => {}'
+        },
+        methods: {
           amdRequire: require
         }
       })
