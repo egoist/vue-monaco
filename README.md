@@ -76,10 +76,7 @@ export default {
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   </head>
   <body>
-    <div
-      id="container"
-      style="width:800px;height:600px;border:1px solid grey"
-    ></div>
+    <div id="app"></div>
 
     <script src="monaco-editor/min/vs/loader.js"></script>
     <script src="https://unpkg.com/vue"></script>
@@ -88,7 +85,14 @@ export default {
       require.config({ paths: { vs: 'monaco-editor/min/vs' } })
 
       new Vue({
-        template: `<monaco-editor v-model="code" language="javascript" :amdRequire="amdRequire" />`,
+        el: '#app',
+        template: `
+          <monaco-editor
+            style="width:800px;height:600px;border:1px solid grey"
+            v-model="code" 
+            language="javascript" 
+            :amdRequire="amdRequire"
+          />`,
         data: {
           code: 'const noop = () => {}'
         },
