@@ -57,6 +57,8 @@ export default {
         this.initMonaco(window.monaco)
       })
     } else {
+      // ESM format so it can't be resolved by commonjs `require` in eslint
+      // eslint-disable-next-line import/no-unresolved
       const monaco = require('monaco-editor')
       this.initMonaco(monaco)
     }

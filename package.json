@@ -6,9 +6,8 @@
     "url": "egoist/vue-monaco",
     "type": "git"
   },
-  "main": "dist/vue-monaco.es.js",
-  "unpkg": "dist/vue-monaco.js",
-  "cdn": "dist/vue-monaco.js",
+  "main": "dist/vue-monaco.js",
+  "module": "dist/vue-monaco.es.js",
   "files": [
     "dist"
   ],
