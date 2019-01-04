@@ -82,7 +82,7 @@ export default {
       this.editor = monaco.editor.create(this.$el, options)
       this.$emit('editorDidMount', this.editor)
       this.editor.onContextMenu(event => this.$emit('contextMenu', event))
-      this.editor.onDidBlurEditor(() => this.$emit('blur'))
+      this.editor.onDidBlurEditorWidget(() => this.$emit('blur'))
       this.editor.onDidBlurEditorText(() => this.$emit('blurText'))
       this.editor.onDidChangeConfiguration(event =>
         this.$emit('configuration', event)
@@ -110,7 +110,7 @@ export default {
         this.$emit('modelOptions', event)
       )
       this.editor.onDidDispose(event => this.$emit('afterDispose', event))
-      this.editor.onDidFocusEditor(() => this.$emit('focus'))
+      this.editor.onDidFocusEditorWidget(() => this.$emit('focus'))
       this.editor.onDidFocusEditorText(() => this.$emit('focusText'))
       this.editor.onDidLayoutChange(event => this.$emit('layout', event))
       this.editor.onDidScrollChange(event => this.$emit('scroll', event))
