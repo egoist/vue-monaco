@@ -22,7 +22,7 @@
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "monaco-editor": "^0.15.6",
+    "monaco-editor": "^0.17.0",
     "nano-assign": "^1.0.0"
   },
   "devDependencies": {
