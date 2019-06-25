@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/vue-monaco.svg?style=flat)](https://npmjs.com/package/vue-monaco) [![NPM downloads](https://img.shields.io/npm/dm/vue-monaco.svg?style=flat)](https://npmjs.com/package/vue-monaco) [![CircleCI](https://circleci.com/gh/egoist/vue-monaco/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-monaco/tree/master) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate)
 
-[Monaco Editor](https://github.com/Microsoft/monaco-editor) is the code editor that powers VS Code. Vue-Monaco is a `<MonacoEditor>` component for [Vue.js](https://github.com/vuejs/vue).
+[Monaco Editor](https://github.com/Microsoft/monaco-editor) is the code editor that powers VS Code, now it's available as a Vue component `<MonacoEditor>` thanks to this project.
 
 ## Install
 
