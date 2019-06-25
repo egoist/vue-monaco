@@ -2,9 +2,15 @@
 
 [![NPM version](https://img.shields.io/npm/v/vue-monaco.svg?style=flat)](https://npmjs.com/package/vue-monaco) [![NPM downloads](https://img.shields.io/npm/dm/vue-monaco.svg?style=flat)](https://npmjs.com/package/vue-monaco) [![CircleCI](https://circleci.com/gh/egoist/vue-monaco/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-monaco/tree/master) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate)
 
-_[Monaco Editor](https://github.com/Microsoft/monaco-editor) is the code editor that powers VS Code._
+[Monaco Editor](https://github.com/Microsoft/monaco-editor) is the code editor that powers VS Code, now it's available as a Vue component `<MonacoEditor>` thanks to this project.
 
 ## Install
+
+```bash
+npm install vue-monaco
+```
+
+Or
 
 ```bash
 yarn add vue-monaco
@@ -38,8 +44,7 @@ Then use the component:
 
 ```vue
 <template>
-  <monaco-editor class="editor" v-model="code" language="javascript">
-  </monaco-editor>
+  <MonacoEditor class="editor" v-model="code" language="javascript" />
 </template>
 
 <script>
@@ -165,7 +170,7 @@ window.MonacoEnvironment = {
 
 - `getMonaco(): IStandaloneCodeEditor`: Return the [editor instance](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html).
 
-Use `ref` to interact with the `MonacoEditor` component in order to access methods: `<MonacoEditor ref="editor"></MonacoEditor>`, then `this.$refs.editor.getMonaco()` will be available.
+Use `ref` to interact with the `MonacoEditor` component in order to access methods: `<MonacoEditor ref="editor" />`, then `this.$refs.editor.getMonaco()` will be available.
 
 ## Contributing
 
