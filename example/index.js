@@ -52,13 +52,21 @@ new Vue({
         <button onClick={this.updateCode}>update</button>
         <MonacoEditor
           class="editor"
-          style="height: 100%;"
           value={this.code}
           language={this.language}
           theme={this.theme}
           options={this.options}
-          onChange={newValue => this.code = newValue}
-          placeholder={<div>hello</div>}
+          onChange={newValue => (this.code = newValue)}
+        />
+        <MonacoEditor
+          class="editor"
+          diffEditor={true}
+          original={`original value`}
+          value={this.code}
+          language={this.language}
+          theme={this.theme}
+          options={this.options}
+          onChange={newValue => (this.code = newValue)}
         />
       </div>
     )

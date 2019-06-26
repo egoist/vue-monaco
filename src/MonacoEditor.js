@@ -4,7 +4,11 @@ export default {
   name: 'MonacoEditor',
 
   props: {
-    value: String,
+    original: String,
+    value: {
+      type: String,
+      required: true
+    },
     theme: {
       type: String,
       default: 'vs'
@@ -13,6 +17,10 @@ export default {
     options: Object,
     amdRequire: {
       type: Function
+    },
+    diffEditor: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -25,28 +33,31 @@ export default {
       deep: true,
       handler(options) {
         if (this.editor) {
-          this.editor.updateOptions(options)
+          const editor = this.getModifiedEditor()
+          editor.updateOptions(options)
         }
       }
     },
 
     value(newValue) {
       if (this.editor) {
-        if (newValue !== this.editor.getValue()) {
-          this.editor.setValue(newValue)
+        const editor = this.getModifiedEditor()
+        if (newValue !== editor.getValue()) {
+          editor.setValue(newValue)
         }
       }
     },
 
     language(newVal) {
       if (this.editor) {
-        window.monaco.editor.setModelLanguage(this.editor.getModel(), newVal)
+        const editor = this.getModifiedEditor()
+        this.monaco.editor.setModelLanguage(editor.getModel(), newVal)
       }
     },
 
     theme(newVal) {
       if (this.editor) {
-        window.monaco.editor.setTheme(newVal)
+        this.monaco.editor.setTheme(newVal)
       }
     }
   },
@@ -54,12 +65,14 @@ export default {
   mounted() {
     if (this.amdRequire) {
       this.amdRequire(['vs/editor/editor.main'], () => {
+        this.monaco = window.monaco
         this.initMonaco(window.monaco)
       })
     } else {
       // ESM format so it can't be resolved by commonjs `require` in eslint
       // eslint-disable-next-line import/no-unresolved
       const monaco = require('monaco-editor')
+      this.monaco = monaco
       this.initMonaco(monaco)
     }
   },
@@ -79,47 +92,34 @@ export default {
         this.options
       )
 
-      this.editor = monaco.editor.create(this.$el, options)
-      this.$emit('editorDidMount', this.editor)
-      this.editor.onContextMenu(event => this.$emit('contextMenu', event))
-      this.editor.onDidBlurEditorWidget(() => this.$emit('blur'))
-      this.editor.onDidBlurEditorText(() => this.$emit('blurText'))
-      this.editor.onDidChangeConfiguration(event =>
-        this.$emit('configuration', event)
-      )
-      this.editor.onDidChangeCursorPosition(event =>
-        this.$emit('position', event)
-      )
-      this.editor.onDidChangeCursorSelection(event =>
-        this.$emit('selection', event)
-      )
-      this.editor.onDidChangeModel(event => this.$emit('model', event))
-      this.editor.onDidChangeModelContent(event => {
-        const value = this.editor.getValue()
+      if (this.diffEditor) {
+        this.editor = monaco.editor.createDiffEditor(this.$el, options)
+        const originalModel = monaco.editor.createModel(
+          this.original,
+          this.language
+        )
+        const modifiedModel = monaco.editor.createModel(
+          this.value,
+          this.language
+        )
+        this.editor.setModel({
+          original: originalModel,
+          modified: modifiedModel
+        })
+      } else {
+        this.editor = monaco.editor.create(this.$el, options)
+      }
+
+      // @event `change`
+      const editor = this.getModifiedEditor()
+      editor.onDidChangeModelContent(event => {
+        const value = editor.getValue()
         if (this.value !== value) {
           this.$emit('change', value, event)
         }
       })
-      this.editor.onDidChangeModelDecorations(event =>
-        this.$emit('modelDecorations', event)
-      )
-      this.editor.onDidChangeModelLanguage(event =>
-        this.$emit('modelLanguage', event)
-      )
-      this.editor.onDidChangeModelOptions(event =>
-        this.$emit('modelOptions', event)
-      )
-      this.editor.onDidDispose(event => this.$emit('afterDispose', event))
-      this.editor.onDidFocusEditorWidget(() => this.$emit('focus'))
-      this.editor.onDidFocusEditorText(() => this.$emit('focusText'))
-      this.editor.onDidLayoutChange(event => this.$emit('layout', event))
-      this.editor.onDidScrollChange(event => this.$emit('scroll', event))
-      this.editor.onKeyDown(event => this.$emit('keydown', event))
-      this.editor.onKeyUp(event => this.$emit('keyup', event))
-      this.editor.onMouseDown(event => this.$emit('mouseDown', event))
-      this.editor.onMouseLeave(event => this.$emit('mouseLeave', event))
-      this.editor.onMouseMove(event => this.$emit('mouseMove', event))
-      this.editor.onMouseUp(event => this.$emit('mouseUp', event))
+
+      this.$emit('editorDidMount', this.editor)
     },
 
     /** @deprecated */
@@ -129,6 +129,10 @@ export default {
 
     getEditor() {
       return this.editor
+    },
+
+    getModifiedEditor() {
+      return this.diffEditor ? this.editor.getModifiedEditor() : this.editor
     },
 
     focus() {
