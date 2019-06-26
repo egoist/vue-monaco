@@ -108,46 +108,16 @@ export default {
         })
       } else {
         this.editor = monaco.editor.create(this.$el, options)
-        this.editor.onContextMenu(event => this.$emit('contextMenu', event))
-        this.editor.onDidBlurEditorWidget(() => this.$emit('blur'))
-        this.editor.onDidBlurEditorText(() => this.$emit('blurText'))
-        this.editor.onDidChangeConfiguration(event =>
-          this.$emit('configuration', event)
-        )
-        this.editor.onDidChangeCursorPosition(event =>
-          this.$emit('position', event)
-        )
-        this.editor.onDidChangeCursorSelection(event =>
-          this.$emit('selection', event)
-        )
-        this.editor.onDidChangeModel(event => this.$emit('model', event))
-        this.editor.onDidChangeModelContent(event => {
-          const value = this.editor.getValue()
-          if (this.value !== value) {
-            this.$emit('change', value, event)
-          }
-        })
-        this.editor.onDidChangeModelDecorations(event =>
-          this.$emit('modelDecorations', event)
-        )
-        this.editor.onDidChangeModelLanguage(event =>
-          this.$emit('modelLanguage', event)
-        )
-        this.editor.onDidChangeModelOptions(event =>
-          this.$emit('modelOptions', event)
-        )
-        this.editor.onDidDispose(event => this.$emit('afterDispose', event))
-        this.editor.onDidFocusEditorWidget(() => this.$emit('focus'))
-        this.editor.onDidFocusEditorText(() => this.$emit('focusText'))
-        this.editor.onDidLayoutChange(event => this.$emit('layout', event))
-        this.editor.onDidScrollChange(event => this.$emit('scroll', event))
-        this.editor.onKeyDown(event => this.$emit('keydown', event))
-        this.editor.onKeyUp(event => this.$emit('keyup', event))
-        this.editor.onMouseDown(event => this.$emit('mouseDown', event))
-        this.editor.onMouseLeave(event => this.$emit('mouseLeave', event))
-        this.editor.onMouseMove(event => this.$emit('mouseMove', event))
-        this.editor.onMouseUp(event => this.$emit('mouseUp', event))
       }
+
+      // @event `change`
+      const editor = this.getModifiedEditor()
+      editor.onDidChangeModelContent(event => {
+        const value = editor.getValue()
+        if (this.value !== value) {
+          this.$emit('change', value, event)
+        }
+      })
 
       this.$emit('editorDidMount', this.editor)
     },

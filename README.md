@@ -140,31 +140,20 @@ window.MonacoEnvironment = {
 
 ### Events
 
-| Event              | IStandaloneCodeEditor Event | Parameters                                  |
-| ------------------ | --------------------------- | ------------------------------------------- |
-| `editorDidMount`   |                             | IStandaloneCodeEditor                       |
-| `contextMenu`      | onContextMenu               | IEditorMouseEvent                           |
-| `blur`             | onDidBlurEditorWidget       |                                             |
-| `blurText`         | onDidBlurEditorText         |                                             |
-| `configuration`    | onDidBlurEditorText         | IConfigurationChangedEvent                  |
-| `position`         | onDidChangeCursorPosition   | ICursorPositionChangedEvent                 |
-| `selection`        | onDidChangeCursorSelection  | ICursorSelectionChangedEvent                |
-| `model`            | onDidChangeModel            | IModelChangedEvent                          |
-| `change`           | onDidChangeModelContent     | value: string, e: IModelContentChangedEvent |
-| `modelDecorations` | onDidChangeModelDecorations | IModelDecorationsChangedEvent               |
-| `modelLanguage`    | onDidChangeModelLanguage    | IModelLanguageChangedEvent                  |
-| `modelOptions`     | onDidChangeModelOptions     | IModelOptionsChangedEvent                   |
-| `afterDispose`     | onDidDispose                |                                             |
-| `focus`            | onDidFocusEditorWidget      |                                             |
-| `focusText`        | onDidFocusEditorText        |                                             |
-| `layout`           | onDidLayoutChange           | EditorLayoutInfo                            |
-| `scroll`           | onDidScrollChange           | IScrollEvent                                |
-| `keydown`          | onKeyDown                   | IKeyboardEvent                              |
-| `keyup`            | onKeyUp                     | IKeyboardEvent                              |
-| `mouseDown`        | onMouseDown                 | IEditorMouseEvent                           |
-| `mouseLeave`       | onMouseLeave                | IEditorMouseEvent                           |
-| `mouseMove`        | onMouseMove                 | IEditorMouseEvent                           |
-| `mouseUp`          | onMouseUp                   | IEditorMouseEvent                           |
+#### `editorDidMount`
+
+- Params:
+  - `editor`: [`IStandaloneCodeEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html) for normal editor, [`IStandaloneDiffEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonediffeditor.html) for diff editor.
+
+Editor is created.
+
+#### `change`
+
+Editor value is updated.
+
+- Params:
+  - `value`: New editor value.
+  - `event`: The `event` from [`onDidChangeModelContent`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html#ondidchangemodelcontent).
 
 ### Methods
 
@@ -177,8 +166,8 @@ Use `ref` to interact with the `MonacoEditor` component in order to access metho
 Use `diffEditor` prop to indicate that this is a DiffEditor, use `original` prop to set the content for the original editor, use `value` prop to set the content for the modified editor.
 
 ```vue
-<MonacoEditor 
-  language="javascript" 
+<MonacoEditor
+  language="javascript"
   :diffEditor="true"
   :value="code"
   :original="originalCode"
