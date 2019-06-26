@@ -133,7 +133,7 @@ window.MonacoEnvironment = {
 ### Props
 
 - `options`: The [second argument](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) of [`monaco.editor.create`](https://microsoft.github.io/monaco-editor/api/modules/monaco.editor.html#create).
-- `code`: A shortcut to set `options.value`.
+- `value`: A shortcut to set `options.value`.
 - `theme`: A shortcut to set `options.theme`.
 - `language`: A shortcut to set `options.language`.
 - `amdRequire`: Load monaco-editor using given amd-style require function.
@@ -171,6 +171,21 @@ window.MonacoEnvironment = {
 - `getEditor(): IStandaloneCodeEditor`: Return the [editor instance](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html).
 
 Use `ref` to interact with the `MonacoEditor` component in order to access methods: `<MonacoEditor ref="editor" />`, then `this.$refs.editor.getEditor()` will be available.
+
+### Use the DiffEditor
+
+Use `diffEditor` prop to indicate that this is a DiffEditor, use `original` prop to set the content for the original editor, use `value` prop to set the content for the modified editor.
+
+```vue
+<MonacoEditor 
+  language="javascript" 
+  :diffEditor="true"
+  :value="code"
+  :original="originalCode"
+/>
+```
+
+In this case, the component's `getEditor()` returns the [`DiffEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonediffeditor.html) instance, while `getModifiedEditor()` returns the modified editor which is an [`IStandaloneCodeEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html) instance.
 
 ## Contributing
 
