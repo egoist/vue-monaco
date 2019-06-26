@@ -15,7 +15,7 @@
     "test": "npm run lint && echo 'no tests!'",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili --js buble --format umd,es --module-name VueMonaco --globals.monaco-editor monaco",
+    "build": "bili",
     "example": "poi --serve",
     "build:example": "poi --prod"
   },
