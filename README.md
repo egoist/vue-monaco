@@ -137,6 +137,7 @@ window.MonacoEnvironment = {
 - `theme`: A shortcut to set `options.theme`.
 - `language`: A shortcut to set `options.language`.
 - `amdRequire`: Load monaco-editor using given amd-style require function.
+- `diffEditor`: `boolean` Indicate that this is a DiffEditor, `false` by default.
 
 ### Component Events
 
