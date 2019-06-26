@@ -138,7 +138,7 @@ window.MonacoEnvironment = {
 - `language`: A shortcut to set `options.language`.
 - `amdRequire`: Load monaco-editor using given amd-style require function.
 
-### Events
+### Component Events
 
 #### `editorDidMount`
 
@@ -154,6 +154,37 @@ Editor value is updated.
 - Params:
   - `value`: New editor value.
   - `event`: The `event` from [`onDidChangeModelContent`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html#ondidchangemodelcontent).
+
+#### Editor Events
+
+You can listen to the editor events directly like this:
+
+```vue
+<template>
+  <MonacoEditor v-model="code" @editorDidMount="editorDidMount" />
+</template>
+
+<script>
+export default {
+  methods: {
+    editorDidMount(editor) {
+      // Listen to `scroll` event
+      editor.onDidScrollChange(e => {
+        console.log(e)
+      })
+    }
+  },
+
+  data() {
+    return {
+      code: '...'
+    }
+  }
+}
+</script>
+```
+
+Refer to [this page](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html) for all editor events.
 
 ### Methods
 
