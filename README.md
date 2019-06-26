@@ -174,7 +174,7 @@ Use `diffEditor` prop to indicate that this is a DiffEditor, use `original` prop
 />
 ```
 
-In this case, the component's `getEditor()` returns the [`DiffEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonediffeditor.html) instance, while `getModifiedEditor()` returns the modified editor which is an [`IStandaloneCodeEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html) instance.
+In this case, the component's `getEditor()` returns the [`IStandaloneDiffEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonediffeditor.html) instance, while you can use `getModifiedEditor()` to get the modified editor which is an [`IStandaloneCodeEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html) instance.
 
 ## Contributing
 
