@@ -122,7 +122,12 @@ export default {
       this.editor.onMouseUp(event => this.$emit('mouseUp', event))
     },
 
+    /** @deprecated */
     getMonaco() {
+      return this.editor
+    },
+
+    getEditor() {
       return this.editor
     },
 

@@ -168,9 +168,9 @@ window.MonacoEnvironment = {
 
 ### Methods
 
-- `getMonaco(): IStandaloneCodeEditor`: Return the [editor instance](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html).
+- `getEditor(): IStandaloneCodeEditor`: Return the [editor instance](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html).
 
-Use `ref` to interact with the `MonacoEditor` component in order to access methods: `<MonacoEditor ref="editor" />`, then `this.$refs.editor.getMonaco()` will be available.
+Use `ref` to interact with the `MonacoEditor` component in order to access methods: `<MonacoEditor ref="editor" />`, then `this.$refs.editor.getEditor()` will be available.
 
 ## Contributing
 
