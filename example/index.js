@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import MonacoEditor from '../src'
-import customThemeData from './custom-theme.js/index.js'
+import customThemeData from './custom-theme.js'
 import './style.css'
 
 const customTheme = {
