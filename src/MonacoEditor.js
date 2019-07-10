@@ -59,7 +59,7 @@ export default {
     },
 
     customTheme(theme) {
-      if(this.editor) {
+      if (this.editor) {
         this.monaco.editor.defineTheme(theme.name, theme.data)
         this.monaco.editor.setTheme(theme.name)
       }
