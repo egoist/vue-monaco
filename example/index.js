@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import MonacoEditor from '../src'
+import draculaTheme from './dracula-theme.js'
 import './style.css'
+
+const customTheme = {
+  name: 'dracula',
+  data: draculaTheme
+}
 
 const code = `
 function foo() {
@@ -30,7 +36,8 @@ new Vue({
   data: {
     code,
     language: 'javascript',
-    theme: 'vs',
+    customTheme: {},
+    theme: 'vs-dark',
     options: {
       lineNumbers: true
     }
@@ -42,7 +49,8 @@ new Vue({
       this.code = markdownCode
       this.options.tabSize = 8
       this.options.lineNumbers = false
-      this.theme = 'vs-dark'
+      this.customTheme = customTheme
+      this.theme = 'dracula'
     }
   },
 
@@ -54,6 +62,7 @@ new Vue({
           class="editor"
           value={this.code}
           language={this.language}
+          customTheme={this.customTheme}
           theme={this.theme}
           options={this.options}
           onChange={newValue => (this.code = newValue)}
