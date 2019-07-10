@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import MonacoEditor from '../src'
-import draculaTheme from './dracula-theme.js'
+import customThemeData from './custom-theme.js/index.js'
 import './style.css'
 
 const customTheme = {
-  name: 'dracula',
-  data: draculaTheme
+  name: 'custom-theme',
+  data: customThemeData
 }
 
 const code = `
@@ -50,7 +50,6 @@ new Vue({
       this.options.tabSize = 8
       this.options.lineNumbers = false
       this.customTheme = customTheme
-      this.theme = 'dracula'
     }
   },
 

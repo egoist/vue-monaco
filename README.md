@@ -138,6 +138,29 @@ window.MonacoEnvironment = {
 - `language`: A shortcut to set `options.language`.
 - `amdRequire`: Load monaco-editor using given amd-style require function.
 - `diffEditor`: `boolean` Indicate that this is a DiffEditor, `false` by default.
+- `customTheme`: `object` containing the name of the custom theme and the [`themeData`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonethemedata.html)
+
+#### Loading custom themes
+
+You can load a custom theme to the editor this way:
+```vue
+<template>
+  <MonacoEditor v-model="code" :customTheme="{name: 'custom-theme', data: customThemeData}"/>
+</template>
+
+<script>
+import customThemeData from ./assets/themes/custom-theme.js
+export default {
+  data() {
+    return {
+      code: '...'
+    }
+  }
+}
+</script>
+```
+
+Take a look at this [example file](example/custom-theme.js) to figure out how to build a custom theme object
 
 ### Component Events
 
