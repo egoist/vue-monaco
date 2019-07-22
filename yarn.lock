@@ -1485,9 +1485,9 @@ big.js@^5.2.2:
   integrity sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==
 
 bili@^4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/bili/-/bili-4.8.0.tgz#9c526de9bf8657dee80e526fc78090f96206e4c2"
-  integrity sha512-HKp8S39PMhb9FGRLkjNYpttoTDgtwGHWcc+Jfa6ZW1GMx/aKkWETQw8pPHQLA0n0Nm+cZJunKfLckxsjh3tsfA==
+  version "4.8.1"
+  resolved "https://registry.yarnpkg.com/bili/-/bili-4.8.1.tgz#c999467c1e316d897f8091df827440841d954b95"
+  integrity sha512-SEfQYwmsO/FsZA+Mbpy+Yb0pxu+KiKEQRzKP/zktxOH/hE4y+26hBRA69OU3rQSKtyNyUFHZwavdlW/wJsf2nw==
   dependencies:
     "@babel/core" "^7.2.2"
     "@babel/plugin-proposal-object-rest-spread" "^7.3.1"
@@ -5871,7 +5871,7 @@ p-finally@^1.0.0:
 
 p-is-promise@^1.1.0:
   version "1.1.0"
-  resolved "http://registry.npmjs.org/p-is-promise/-/p-is-promise-1.1.0.tgz#9c9456989e9f6588017b0434d56097675c3da05e"
+  resolved "https://registry.npmjs.org/p-is-promise/-/p-is-promise-1.1.0.tgz#9c9456989e9f6588017b0434d56097675c3da05e"
   integrity sha1-nJRWmJ6fZYgBewQ01WCXZ1w9oF4=
 
 p-limit@^1.0.0, p-limit@^1.1.0:
@@ -7334,7 +7334,7 @@ rgb-regex@^1.0.1:
 
 rgba-regex@^1.0.0:
   version "1.0.0"
-  resolved "http://registry.npmjs.org/rgba-regex/-/rgba-regex-1.0.0.tgz#43374e2e2ca0968b0ef1523460b7d730ff22eeb3"
+  resolved "https://registry.npmjs.org/rgba-regex/-/rgba-regex-1.0.0.tgz#43374e2e2ca0968b0ef1523460b7d730ff22eeb3"
   integrity sha1-QzdOLiyglosO8VI0YLfXMP8i7rM=
 
 rimraf@2.6.3:
