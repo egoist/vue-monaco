@@ -83,7 +83,7 @@ export default {
 
   methods: {
     initMonaco(monaco) {
-      this.$emit('editorWillMount', this.editor)
+      this.$emit('editorWillMount', this.monaco)
 
       const options = assign(
         {
