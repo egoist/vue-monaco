@@ -141,12 +141,19 @@ window.MonacoEnvironment = {
 
 ### Component Events
 
+#### `editorWillMount`
+
+- Params:
+  - `monaco`: [`monaco module`](https://microsoft.github.io/monaco-editor/api/index.html)
+
+Called before mounting the editor.
+
 #### `editorDidMount`
 
 - Params:
   - `editor`: [`IStandaloneCodeEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html) for normal editor, [`IStandaloneDiffEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonediffeditor.html) for diff editor.
 
-Editor is created.
+Called when the editor is mounted.
 
 #### `change`
 
