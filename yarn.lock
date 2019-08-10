@@ -864,17 +864,17 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@poi/dev-utils@^12.1.2":
-  version "12.1.2"
-  resolved "https://registry.yarnpkg.com/@poi/dev-utils/-/dev-utils-12.1.2.tgz#261a2fa4cb23ba3ebc685ba6757fa434f13a6105"
-  integrity sha512-7ySDsvtSkVNlrN1ynSKxLYE06x5dhqtqQKi9k9ZwLxtYXWjiGkoS9N+XFfzjTv6UDeW9a55c2WHtI+hixHVyzg==
+"@poi/dev-utils@^12.1.3":
+  version "12.1.3"
+  resolved "https://registry.yarnpkg.com/@poi/dev-utils/-/dev-utils-12.1.3.tgz#5cb38bdf782af015657632d07d3ad1f00dc6f2f8"
+  integrity sha512-OfAYA79p+6pc5PPsrYVOktkWbDa58jX6/g9oRJ5kiF1FSbf75EuBbMrvr8YsE8ixWLAnZHPU+wcUhDiBKLDb/Q==
   dependencies:
     address "^1.0.3"
     cross-spawn "^6.0.5"
     opn "^5.4.0"
     react-error-overlay "^4.0.1"
     sockjs-client "^1.1.5"
-    strip-ansi "3.0.0"
+    strip-ansi "5.2.0"
 
 "@poi/logger@^12.0.0":
   version "12.0.0"
@@ -883,10 +883,10 @@
   dependencies:
     chalk "^2.4.1"
 
-"@poi/plugin-html-entry@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@poi/plugin-html-entry/-/plugin-html-entry-0.2.0.tgz#41194b79569ff311294ea37dcec782c9d34f98b6"
-  integrity sha512-2UOJIsSBY4e8SxGkxhI4XB/2DgTAQ/Z5OIApRE7gTjZySR0bMouf7bqsz0kQlj2JJsRLjv4aS5sS8fW3S82V7A==
+"@poi/plugin-html-entry@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@poi/plugin-html-entry/-/plugin-html-entry-0.2.1.tgz#fc54cd8bcef329b55e14ae57ad054f527d565aa3"
+  integrity sha512-ebQHAb4EUUY2j+DYUPG8JyTnw9KYuCtFGYGf6cH6K1Ur2gABK7MIZSYFSE2HV519ZhC3NNL652VSF93Z70M8+w==
   dependencies:
     chokidar "^2.0.4"
     fs-extra "^7.0.1"
@@ -6136,9 +6136,9 @@ plur@^3.0.1:
     irregular-plurals "^2.0.0"
 
 poi@^12.2.14:
-  version "12.7.1"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.7.1.tgz#ff11434742d2700cf8da0797e3dc110438b9d705"
-  integrity sha512-o0FdNQWYTPnOeL70x0VwOO10HqDJo1LOykAS86jRCObB5vEO3FPk5Y7/nGfhiRE3G9b9ZxorFYS7kbHIFwc7bA==
+  version "12.7.2"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.7.2.tgz#69b2972603ef648850675cf2ef3824fda8abf0e4"
+  integrity sha512-93F93CNC5PLXSUs3YJJXhaz/Kg3UdWXJrex2Hp6THrfw2n6qDSLZaABPUx0K/gPjk1a0lz7b5mXW4hOQAfgjMQ==
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
@@ -6152,9 +6152,9 @@ poi@^12.2.14:
     "@babel/preset-typescript" "^7.1.0"
     "@babel/runtime" "^7.1.5"
     "@intervolga/optimize-cssnano-plugin" "^1.0.6"
-    "@poi/dev-utils" "^12.1.2"
+    "@poi/dev-utils" "^12.1.3"
     "@poi/logger" "^12.0.0"
-    "@poi/plugin-html-entry" "^0.2.0"
+    "@poi/plugin-html-entry" "^0.2.1"
     "@poi/pnp-webpack-plugin" "^0.0.2"
     babel-helper-vue-jsx-merge-props "^2.0.3"
     babel-loader "^8.0.4"
@@ -8024,12 +8024,12 @@ string_decoder@~0.10.x:
   version "0.10.31"
   resolved "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
 
-strip-ansi@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-3.0.0.tgz#7510b665567ca914ccb5d7e072763ac968be3724"
-  integrity sha1-dRC2ZVZ8qRTMtdfgcnY6yWi+NyQ=
+strip-ansi@5.2.0, strip-ansi@^5.1.0, strip-ansi@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-5.2.0.tgz#8c9a536feb6afc962bdfa5b104a5091c1ad9c0ae"
+  integrity sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==
   dependencies:
-    ansi-regex "^2.0.0"
+    ansi-regex "^4.1.0"
 
 strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   version "3.0.1"
@@ -8042,13 +8042,6 @@ strip-ansi@^4.0.0:
   resolved "https://registry.npmjs.org/strip-ansi/-/strip-ansi-4.0.0.tgz#a8479022eb1ac368a871389b635262c505ee368f"
   dependencies:
     ansi-regex "^3.0.0"
-
-strip-ansi@^5.1.0, strip-ansi@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-5.2.0.tgz#8c9a536feb6afc962bdfa5b104a5091c1ad9c0ae"
-  integrity sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==
-  dependencies:
-    ansi-regex "^4.1.0"
 
 strip-bom@^3.0.0:
   version "3.0.0"
