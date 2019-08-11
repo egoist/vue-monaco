@@ -13,6 +13,9 @@ export default {
       type: String,
       default: 'vs'
     },
+    customTheme: {
+      type: Object
+    },
     language: String,
     options: Object,
     amdRequire: {
@@ -52,6 +55,13 @@ export default {
       if (this.editor) {
         const editor = this.getModifiedEditor()
         this.monaco.editor.setModelLanguage(editor.getModel(), newVal)
+      }
+    },
+
+    customTheme(theme) {
+      if (this.editor) {
+        this.monaco.editor.defineTheme(theme.name, theme.data)
+        this.monaco.editor.setTheme(theme.name)
       }
     },
 
