@@ -6425,9 +6425,9 @@ plur@^3.0.1:
     irregular-plurals "^2.0.0"
 
 poi@^12.2.14:
-  version "12.7.3"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-12.7.3.tgz#092d45b4f24b6463ebfee34306b30ebce127c84e"
-  integrity sha512-WW00jieN81cDosns5w6NicaAzs6nUpMzz48r1WbBMRHYxIZPT0wiY3KjNUWTxEGPIBAcUmUZ7oGCya4+89FZBw==
+  version "12.7.4"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-12.7.4.tgz#ca60ff7f133ffaa7c07ca83ad3c7a6ff6e2bd4d8"
+  integrity sha512-JzpiCg5E946LmwZ9CKv+C7Fj89gwa1le/nKrXcbb3L0hNMeU+HYXfWzMOwCLBXIHAUtYMakVgm5FdWtIYp6DKQ==
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
