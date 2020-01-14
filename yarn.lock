@@ -5663,10 +5663,10 @@ monaco-editor-webpack-plugin@^1.7.0:
   dependencies:
     "@types/webpack" "^4.4.19"
 
-monaco-editor@^0.18.0:
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.18.0.tgz#72079e1da5b74eb356685b75bda611faa7251036"
-  integrity sha512-nNaKGNdeXwDxzmtrbJKn5q30jcuu+l7eMtaCDA4eLagvx66/joYvSiGkL/Nx4L0cZKM7ASu+fPIr3kmjEr5Ncg==
+monaco-editor@^0.19.3:
+  version "0.19.3"
+  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.19.3.tgz#1c994b3186c00650dbcd034d5370d46bf56c0663"
+  integrity sha512-2n1vJBVQF2Hhi7+r1mMeYsmlf18hjVb6E0v5SoMZyb4aeOmYPKun+CE3gYpiNA1KEvtSdaDHFBqH9d7Wd9vREg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
