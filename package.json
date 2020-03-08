@@ -22,14 +22,14 @@
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "monaco-editor": "^0.18.0",
+    "monaco-editor": "^0.20.0",
     "nano-assign": "^1.0.0"
   },
   "devDependencies": {
     "bili": "^4.8.0",
     "eslint-config-rem": "^4.0.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "monaco-editor-webpack-plugin": "^1.7.0",
+    "monaco-editor-webpack-plugin": "^1.9.0",
     "poi": "^12.2.14",
     "prettier": "^1.18.2",
     "vue": "^2.5.21",
