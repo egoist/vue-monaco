@@ -48,6 +48,15 @@ export default {
       }
     },
 
+    original(newValue) {
+      if (this.editor && this.diffEditor) {
+        const editor = this.getOriginalEditor()
+        if (newValue !== editor.getValue()) {
+          editor.setValue(newValue)
+        }
+      }
+    },
+
     language(newVal) {
       if (this.editor) {
         const editor = this.getModifiedEditor()
@@ -135,6 +144,10 @@ export default {
 
     getModifiedEditor() {
       return this.diffEditor ? this.editor.getModifiedEditor() : this.editor
+    },
+
+    getOriginalEditor() {
+      return this.diffEditor ? this.editor.getOriginalEditor() : this.editor
     },
 
     focus() {
