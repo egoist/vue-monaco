@@ -83,9 +83,9 @@ export default {
   <body>
     <div id="app"></div>
 
-    <script src="monaco-editor/min/vs/loader.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/vue-monaco"></script>
+    <script src="monaco-editor/min/vs/loader.js"></script>
     <script>
       require.config({ paths: { vs: 'monaco-editor/min/vs' } })
 
