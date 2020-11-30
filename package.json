@@ -31,7 +31,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "monaco-editor-webpack-plugin": "^1.9.0",
     "poi": "^12.2.14",
-    "prettier": "^1.18.2",
+    "prettier": "^2.2.1",
     "vue": "^2.5.21",
     "vue-template-compiler": "^2.5.21",
     "xo": "^0.24.0"
