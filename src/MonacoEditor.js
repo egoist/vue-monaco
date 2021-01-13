@@ -75,14 +75,18 @@ export default {
     if (this.amdRequire) {
       this.amdRequire(['vs/editor/editor.main'], () => {
         this.monaco = window.monaco
-        this.initMonaco(window.monaco)
+        this.$nextTick(() => {
+          this.initMonaco(window.monaco)
+        })
       })
     } else {
       // ESM format so it can't be resolved by commonjs `require` in eslint
       // eslint-disable-next-line import/no-unresolved
       const monaco = require('monaco-editor')
       this.monaco = monaco
-      this.initMonaco(monaco)
+      this.$nextTick(() => {
+        this.initMonaco(monaco)
+      })
     }
   },
 
