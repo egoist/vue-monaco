@@ -20,7 +20,13 @@ yarn add vue-monaco
 
 ### Use ESM version with webpack
 
-Use [monaco-editor-webpack-plugin](https://github.com/Microsoft/monaco-editor-webpack-plugin):
+Firstly install [monaco-editor-webpack-plugin](https://github.com/Microsoft/monaco-editor-webpack-plugin)
+
+```bash
+npm install monaco-editor-webpack-plugin --save-dev
+```
+
+Next use [monaco-editor-webpack-plugin](https://github.com/Microsoft/monaco-editor-webpack-plugin):
 
 ```js
 // webpack.config.js
@@ -37,6 +43,27 @@ module.exports = {
       languages: ['javascript', 'css', 'html', 'typescript']
     })
   ]
+}
+```
+
+If you use [Vue CLI](https://cli.vuejs.org/) instead of Webpack directly, you should update the `vue.config.js`:
+
+```js
+const MonacoEditorPlugin = require('monaco-editor-webpack-plugin')
+
+module.exports = {
+  chainWebpack: config => {
+    config.plugin('monaco-editor').use(MonacoEditorPlugin, [
+      {
+        // https://github.com/Microsoft/monaco-editor-webpack-plugin#options
+        // Include a subset of languages support
+        // Some language extensions like typescript are so huge that may impact build performance
+        // e.g. Build full languages support with webpack 4.0 takes over 80 seconds
+        // Languages are loaded on demand at runtime
+        languages: ['javascript', 'css', 'html', 'typescript']
+      }
+    ])
+  }
 }
 ```
 
