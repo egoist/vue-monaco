@@ -39,6 +39,24 @@ module.exports = {
   ]
 }
 ```
+or if you are using Vue CLI instead of webpack:
+
+```js
+// vue.config.js
+const MonacoEditorPlugin = require('monaco-editor-webpack-plugin')
+
+module.exports = {
+   // ...
+  chainWebpack: config => {
+    config.plugin('monaco-editor').use(MonacoEditorPlugin, [
+      {
+        // Languages are loaded on demand at runtime
+        languages: ['javascript', 'css', 'html', 'typescript']
+      }
+    ])
+  }
+}
+```
 
 Then use the component:
 
