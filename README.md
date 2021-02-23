@@ -19,8 +19,10 @@ yarn add vue-monaco
 ## Usage
 
 ### Use ESM version with webpack
+Need [monaco-editor](https://github.com/Microsoft/monaco-editor) and [monaco-editor-webpack-plugin](https://github.com/Microsoft/monaco-editor-webpack-plugin) installed.
+The version of monaco-editor and monaco-editor-webpack-plugin should be same from package.json of this repository for avoiding major webpack error.
 
-Use [monaco-editor-webpack-plugin](https://github.com/Microsoft/monaco-editor-webpack-plugin):
+Use monaco-editor-webpack-plugin:
 
 ```js
 // webpack.config.js
