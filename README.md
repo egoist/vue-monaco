@@ -34,9 +34,28 @@ module.exports = {
       // Some language extensions like typescript are so huge that may impact build performance
       // e.g. Build full languages support with webpack 4.0 takes over 80 seconds
       // Languages are loaded on demand at runtime
-      languages: ['javascript', 'css', 'html', 'typescript']
+      //Don't add javascript, some languages share the same web worker. Adding it will cause error
+      languages: ['css', 'html', 'typescript']
     })
   ]
+}
+```
+
+Or use with Vue cli: 
+
+```js
+// vue.config.js
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+
+module.exports = {
+	configureWebpack: {
+		plugins: [
+			new MonacoWebpackPlugin({
+        //Don't add javascript, some languages share the same web worker. Adding it will cause error
+				languages: ['typescript', 'css','html']
+			})
+		]
+	}
 }
 ```
 
