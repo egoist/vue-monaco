@@ -1,6 +1,7 @@
 import assign from 'nano-assign'
+import { defineComponent } from 'vue-demi'
 
-export default {
+export default defineComponent({
   name: 'MonacoEditor',
 
   props: {
@@ -95,6 +96,7 @@ export default {
   },
 
   methods: {
+    /** @param {import('monaco-editor')} monaco */
     initMonaco(monaco) {
       this.$emit('editorWillMount', this.monaco)
 
@@ -137,11 +139,18 @@ export default {
       this.$emit('editorDidMount', this.editor)
     },
 
-    /** @deprecated */
+    /**
+     * @deprecated use getEditor instead
+     * @see getEditor
+     * @returns {import('monaco-editor').editor.ICodeEditor}
+     */
     getMonaco() {
       return this.editor
     },
 
+    /**
+     * @returns {import('monaco-editor').editor.ICodeEditor}
+     */
     getEditor() {
       return this.editor
     },
@@ -162,4 +171,4 @@ export default {
   render(h) {
     return h('div')
   }
-}
+})
