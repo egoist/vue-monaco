@@ -82,8 +82,8 @@ export default {
     } else {
       import('monaco-editor').then((monaco) => {
         this.monaco = monaco;
-        this.$nextTick(function () {
-          _this.initMonaco(monaco);
+        this.$nextTick(() => {
+          this.initMonaco(monaco);
         });
       });
     }
